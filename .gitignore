@@ -26,6 +26,7 @@
 Gemfile.lock
 .ruby-verison
 .ruby-gemset
+/bin/
 
 ### We do not support rvm < 1.11.0 and we are not doing anything fancy
 .rvmrc

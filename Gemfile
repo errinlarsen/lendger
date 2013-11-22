@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
-gem "virtus"
-gem "interactor"
+gemspec
 
 group :test do
   gem "rspec"
