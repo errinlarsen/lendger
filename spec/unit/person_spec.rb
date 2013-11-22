@@ -1,9 +1,12 @@
-require_relative "unit_helper"
-require "models/person"
+require_relative "../spec_helper"
+require "lendger/entities/person"
 
-describe Person do
+# Finalize constants manually to resolve circular dependencies in Virtus
+RSpec.configure { |config| config.before(:suite) { Virtus.finalize } }
+
+describe Lendger::Person do
   let(:attributes) { {id: 1, name: "foobar", email: "foo@bar.com"} }
-  let(:person) { Person.new(attributes) }
+  let(:person) { Lendger::Person.new(attributes) }
 
   describe ".new" do
     it "accepts a Hash of attributes" do
@@ -12,9 +15,6 @@ describe Person do
   end
 
   describe "#attributes" do
-    it "includes an id" do
-      expect(person.attributes).to include(id: 1)
-    end
     it "includes a name" do
       expect(person.attributes).to include(name: "foobar")
     end

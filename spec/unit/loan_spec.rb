@@ -1,11 +1,14 @@
-require File.expand_path(File.dirname(__FILE__) + "/unit_helper")
-require "models/loan"
+require_relative "../spec_helper"
+require "lendger/entities/loan"
 
-describe Loan do
+# Finalize constants manually to resolve circular dependencies in Virtus
+RSpec.configure { |config| config.before(:suite) { Virtus.finalize } }
+
+describe Lendger::Loan do
   let(:lender)     { {id: 1, name: "Lender"} }
   let(:borrower)   { {id: 2, name: "Borrower"} }
   let(:attributes) { {id: 3, lender: lender, borrower: borrower} }
-  let(:loan)       { Loan.new(attributes) }
+  let(:loan)       { Lendger::Loan.new(attributes) }
 
   describe ".new" do
     it "accepts a Hash of attributes" do
@@ -14,9 +17,6 @@ describe Loan do
   end
 
   describe "#attributes" do
-    it "includes an id" do
-      expect(loan.attributes).to include(id: 3)
-    end
     it "includes a lender" do
       expect(loan.attributes).to include(:lender)
     end
