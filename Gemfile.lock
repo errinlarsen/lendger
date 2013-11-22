@@ -1,3 +1,10 @@
+PATH
+  remote: .
+  specs:
+    lendger (0.0.1.alpha1)
+      interactor
+      virtus
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,6 +20,7 @@ GEM
     equalizer (0.0.7)
     ice_nine (0.10.0)
     interactor (2.1.0)
+    rake (0.9.6)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -31,6 +39,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  interactor
+  lendger!
+  rake
   rspec
-  virtus

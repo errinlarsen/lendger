@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
 
   gem.require_paths = [ "lib" ]
   gem.files   = `git ls-files`.split("\n")
-  gem.test_files = `git lis-files -- {spec}/*`.split("\n")
+  gem.test_files = `git ls-files -- {spec}/*`.split("\n")
   gem.extra_rdoc_files = %w[LICENSE README.md TODO.md]
 
   gem.add_dependency("virtus")
