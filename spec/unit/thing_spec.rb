@@ -1,9 +1,12 @@
-require File.expand_path(File.dirname(__FILE__) + "/unit_helper")
-require "models/thing"
+require_relative "../spec_helper"
+require "lendger/entities/thing"
 
-describe Thing do
+# Finalize constants manually to resolve circular dependencies in Virtus
+RSpec.configure { |config| config.before(:suite) { Virtus.finalize } }
+
+describe Lendger::Thing do
   let(:attributes) { {id: 1, name: "foo", description: "bar"} }
-  let(:thing) { Thing.new(attributes) }
+  let(:thing) { Lendger::Thing.new(attributes) }
 
   describe ".new" do
     it "accepts a Hash of attributes" do
@@ -12,16 +15,13 @@ describe Thing do
   end
 
   describe "#attributes" do
-    it "includes an id" do
-      expect(thing.attributes).to include(id: 1)
-    end
     it "includes a name" do
       expect(thing.attributes).to include(name: "foo")
     end
     it "includes an (optional) description" do
       expect(thing.attributes).to include(description: "bar")
-      expect { @other_thing = Thing.new(id: 1, name: "foo") }.to_not raise_error
-      expect(@other_thing.description).to be_nil
+      expect {@thing = Lendger::Thing.new(name: "foo") }.to_not raise_error
+      expect(@thing.description).to be_nil
     end
   end
 end

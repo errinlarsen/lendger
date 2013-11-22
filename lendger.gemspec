@@ -16,5 +16,6 @@ Gem::Specification.new do |gem|
   gem.extra_rdoc_files = %w[LICENSE README.md TODO.md]
 
   gem.add_dependency("virtus")
+  gem.add_dependency("inflecto")
   gem.add_dependency("interactor")
 end

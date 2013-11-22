@@ -1,7 +1,4 @@
-module Lendger
-end
-
-require "lendger/entity"
-require "lendger/interactor"
+require "lendger/entities"
+require "lendger/interactors"
 
 Virtus.finalize

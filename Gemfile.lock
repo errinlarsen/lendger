@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     lendger (0.0.1.alpha1)
+      inflecto
       interactor
       virtus
 
@@ -19,6 +20,7 @@ GEM
     diff-lcs (1.2.5)
     equalizer (0.0.7)
     ice_nine (0.10.0)
+    inflecto (0.0.2)
     interactor (2.1.0)
     rake (0.9.6)
     rspec (2.14.1)
