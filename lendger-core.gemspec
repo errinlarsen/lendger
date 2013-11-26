@@ -1,7 +1,7 @@
 require File.expand_path("../lib/lendger/version", __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name = "lendger"
+  gem.name = "lendger-core"
   gem.version = Lendger::VERSION
   gem.authors = [ "Errin Larsen" ]
   gem.email = [ "errinlarsen@gmail.com" ]
