@@ -2,5 +2,10 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "rspec", group: [:test]
+
 gem "rake",  group: [:development, :test]
+
+group :test do
+  gem "rspec"
+  gem "factory_girl"
+end
