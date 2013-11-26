@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    lendger (0.0.1.alpha1)
+    lendger-core (0.0.1.alpha1)
+      display_case
       inflecto
       interactor
       virtus
@@ -18,6 +19,7 @@ GEM
       descendants_tracker (~> 0.0.1)
     descendants_tracker (0.0.3)
     diff-lcs (1.2.5)
+    display_case (0.0.9)
     equalizer (0.0.7)
     ice_nine (0.10.0)
     inflecto (0.0.2)
@@ -41,6 +43,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  lendger!
+  lendger-core!
   rake
   rspec

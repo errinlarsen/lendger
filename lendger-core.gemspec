@@ -18,4 +18,5 @@ Gem::Specification.new do |gem|
   gem.add_dependency("virtus")
   gem.add_dependency("inflecto")
   gem.add_dependency("interactor")
+  gem.add_dependency("display_case")
 end
