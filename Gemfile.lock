@@ -2,21 +2,14 @@ PATH
   remote: .
   specs:
     lendger-core (0.0.1.alpha1)
-      display_case
       inflecto
       interactor
+      settingslogic
       virtus
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.0.1)
-      i18n (~> 0.6, >= 0.6.4)
-      minitest (~> 4.2)
-      multi_json (~> 1.3)
-      thread_safe (~> 0.1)
-      tzinfo (~> 0.3.37)
-    atomic (1.1.14)
     axiom-types (0.0.5)
       descendants_tracker (~> 0.0.1)
       ice_nine (~> 0.9)
@@ -26,16 +19,10 @@ GEM
       descendants_tracker (~> 0.0.1)
     descendants_tracker (0.0.3)
     diff-lcs (1.2.5)
-    display_case (0.0.9)
-    equalizer (0.0.7)
-    factory_girl (4.3.0)
-      activesupport (>= 3.0.0)
-    i18n (0.6.5)
+    equalizer (0.0.8)
     ice_nine (0.10.0)
     inflecto (0.0.2)
     interactor (2.1.0)
-    minitest (4.7.5)
-    multi_json (1.8.2)
     rake (0.9.6)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -45,9 +32,7 @@ GEM
     rspec-expectations (2.14.4)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.4)
-    thread_safe (0.1.3)
-      atomic
-    tzinfo (0.3.38)
+    settingslogic (2.0.9)
     virtus (1.0.0)
       axiom-types (~> 0.0.5)
       coercible (~> 0.2)
@@ -58,7 +43,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  factory_girl
   lendger-core!
   rake
   rspec
