@@ -1,27 +1,54 @@
 require_relative "../spec_helper"
 require "lendger/entities/thing"
 
-# Finalize constants manually to resolve circular dependencies in Virtus
-RSpec.configure { |config| config.before(:suite) { Virtus.finalize } }
-
 describe Lendger::Thing do
-  let(:attributes) { {id: 1, name: "foo", description: "bar"} }
-  let(:thing) { Lendger::Thing.new(attributes) }
+  def thing(attributes={}, *other_args)
+    Lendger::Thing.new(attributes, *other_args)
+  end
 
   describe ".new" do
-    it "accepts a Hash of attributes" do
+    it "accepts an empty list of parameters" do
       expect { thing }.not_to raise_error
+    end
+    it "accepts a Hash as it's only parameter" do
+      expect { thing(foo: "bar") }.not_to raise_error
+    end
+    it "raises an error with more than one parameter" do
+      expect { thing(:foo, "bar") }.to raise_error
     end
   end
 
+  def self.expected_attributes
+    {id: Integer, name: String, description: String}
+  end
+
   describe "#attributes" do
-    it "includes a name" do
-      expect(thing.attributes).to include(name: "foo")
+    expected_attributes.each do |attr,_|
+      it "includes #{attr.inspect}" do
+        expect(thing.attributes).to include(attr)
+      end
     end
-    it "includes an (optional) description" do
-      expect(thing.attributes).to include(description: "bar")
-      expect {@thing = Lendger::Thing.new(name: "foo") }.to_not raise_error
-      expect(@thing.description).to be_nil
+  end
+
+  def self.test_values
+    {Integer => [42, "23"], String  => [:other_string, "some_string"]}
+  end
+
+  expected_attributes.each do |attr, klass|
+    describe "#{attr.inspect} attribute" do
+      it "can be set to any of: #{test_values[klass].inspect}" do
+        self.class.test_values[klass].each do |test_value|
+          test_thing = thing;
+          expect { test_thing.send(:"#{attr}=", test_value) }.not_to raise_error
+          expect(test_thing.send(attr)).to eql(send(klass.to_s, test_value))
+        end
+      end
+    end
+  end
+
+  describe "#valid?" do
+    it "responds" do
+      expect(thing).to respond_to(:valid?)
     end
   end
 end

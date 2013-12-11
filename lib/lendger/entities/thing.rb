@@ -1,8 +1,13 @@
-require_relative "entity"
+require "virtus"
 
 module Lendger
-  class Thing < Entity
-    attribute :name, String
+  class Thing
+    include Virtus.model
+
+    attribute :id,          Integer
+    attribute :name,        String
     attribute :description, String
+
+    def valid?; true; end
   end
 end

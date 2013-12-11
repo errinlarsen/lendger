@@ -1,4 +1,4 @@
 require "lendger/entities"
-require "lendger/interactors"
+require "lendger/use_cases"
 
 Virtus.finalize
