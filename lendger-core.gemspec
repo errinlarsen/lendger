@@ -1,8 +1,8 @@
-require File.expand_path("../lib/lendger/version", __FILE__)
+require File.expand_path("../lib/lendger/core/version", __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name = "lendger-core"
-  gem.version = Lendger::VERSION
+  gem.version = Lendger::Core::VERSION
   gem.authors = [ "Errin Larsen" ]
   gem.email = [ "errinlarsen@gmail.com" ]
   gem.description = "Core Lendger application"

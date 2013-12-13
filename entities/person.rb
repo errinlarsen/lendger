@@ -1,8 +1,8 @@
-require_relative "entity"
+require_relative "base"
 require_relative "loan"
 
 module Lendger
-  class Person < Entity
+  class Person < Entity::Base
     include Virtus.model(finalize: false)
 
     attribute :name, String

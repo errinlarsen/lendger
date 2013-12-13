@@ -1,5 +1,5 @@
 require_relative "../spec_helper"
-require "lendger"
+require "lendger-core"
 
 describe "Build a new Thing" do
   def results

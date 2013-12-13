@@ -1,7 +1,9 @@
-require_relative "use_case"
+require "interactor"
 
 module Lendger
-  class BuildThing < UseCase
+  class BuildThing
+    include Interactor
+
     def perform
       context[:thing] = Thing.new.attributes
     end

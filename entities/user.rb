@@ -1,8 +1,8 @@
-require_relative "entity"
+require_relative "base"
 require_relative "person"
 
 module Lendger
-  class User < Entity
+  class User < Entity::Base
     attribute :login, String
     attribute :person, Lendger::Person
 
